@@ -1,0 +1,13 @@
+23:33:38.658 DEBUG org.springframework.context.support.AbstractApplicationContext 630 prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6622fc65
+23:33:38.752 DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader 393 doLoadBeanDefinitions - Loaded 10 bean definitions from class path resource [beans.xml]
+23:33:38.777 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'helloWorld'
+23:33:38.784 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'studentOne'
+23:33:38.799 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'studentTwo'
+23:33:38.803 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'clazzOne'
+23:33:38.807 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'studentThird'
+23:33:38.808 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'teacherMap'
+23:33:38.809 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'teacherTwo'
+23:33:38.810 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'teacherOne'
+23:33:38.814 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'students'
+23:33:38.816 DEBUG org.springframework.beans.factory.support.DefaultSingletonBeanRegistry 225 getSingleton - Creating shared instance of singleton bean 'clazzTwo'
+23:33:38.826 WARN  edu.hubu.spring6.bean.HelloWorldTest 62 testDIBySetter - Student{id=1005, name='王五', age=22, sex='男', clazz=Clazz{clazzId=3333, clazzName='最强', studentList=[Student{id=1001, name='张三', age=22, sex='男', clazz=null, hobbies=null, teacherMap=null}, Student{id=1002, name='李四', age=33, sex='女', clazz=null, hobbies=null, teacherMap=null}]}, hobbies=[打游戏, 睡觉], teacherMap={10016=Teacher{teacherId=10011, teacherName='大2'}, 10011=Teacher{teacherId=10010, teacherName='大宝'}}}

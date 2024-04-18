@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--
+    配置HelloWorld所对应的bean，即将HelloWorld的对象交给Spring的IOC容器管理
+     通过bean标签配置IOC容器所管理的bean
+    属性：
+        id：设置bean的唯一标识
+        class：设置bean所对应类型的全类名
+    1. 根据ID获取
+-->
+    <bean id="helloWorld" class="edu.hubu.spring6.bean.HelloWorld"> </bean>
+
+
+<!--    2. 配置 bean 为属性配置-->
+    <bean id="studentOne" class="edu.hubu.spring6.bean.Student">
+        <!--property标签：通过组件类的 setXXX赋值-->
+        <!--name属性：指定属性名-->
+        <!--value属性：指定属性值-->
+        <property name="id" value="1001"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="22"/>
+        <property name="sex" value="男"/>
+    </bean>
+
+
+<!--    3. 依赖注入 - 构造器-->
+    <bean id="studentTwo" class="edu.hubu.spring6.bean.Student">
+        <!--
+        注意：
+            constructor-arg标签还有两个属性可以进一步描述构造器参数：
+            index属性：指定参数所在位置的索引（从0开始）
+            name属性：指定参数名
+        -->
+        <constructor-arg value="1002" />
+        <constructor-arg value="李四" />
+        <constructor-arg value="33" />
+        <constructor-arg value="女" />
+    </bean>
+
+<!--    4. 外部bean-->
+    <bean id="clazzOne" class="edu.hubu.spring6.bean.Clazz">
+        <property name="clazzId" value="1" />
+        <property name="clazzName" value="2" />
+        <property name="studentList">
+            <list>
+                <ref bean="studentOne" />
+                <ref bean="studentTwo" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="studentThird" class="edu.hubu.spring6.bean.Student" >
+        <property name="id" value="1005"/>
+        <property name="name" value="王五"/>
+        <property name="age" value="22"/>
+        <property name="sex" value="男"/>
+        <property name="clazz" ref="clazzOne" />
+        <property name="clazz.clazzId" value="3333" />
+        <property name="clazz.clazzName" value="最强" />
+        <property name="hobbies">
+            <array>
+                <value>打游戏</value>
+                <value>睡觉</value>
+            </array>
+        </property>
+        <!--<property name="teacherMap">-->
+        <!--    <map>-->
+        <!--        <entry value-ref="teacherOne" key="10010" />-->
+        <!--        <entry value-ref="teacherTwo" key="10086" />-->
+        <!--    </map>-->
+        <!--</property>-->
+
+        <property name="teacherMap" ref="teacherMap" />
+
+    </bean>
+
+<!--    Map-->
+    <bean id="teacherOne" class="edu.hubu.spring6.bean.Teacher">
+        <property name="teacherId" value="10010" />
+        <property name="teacherName" value="大宝" />
+    </bean>
+    <bean id="teacherTwo" class="edu.hubu.spring6.bean.Teacher">
+        <property name="teacherId" value="10011" />
+        <property name="teacherName" value="大2" />
+    </bean>
+
+    <!--list集合类型的bean-->
+    <!--list集合类型的bean-->
+    <util:list id="students">
+        <ref bean="studentOne" />
+        <ref bean="studentTwo" />
+    </util:list>
+
+    <!--map集合类型的bean-->
+    <util:map id="teacherMap">
+        <entry key="10016" value-ref="teacherTwo" />
+        <entry key="10011" value-ref="teacherOne" />
+    </util:map>
+
+    <bean id="clazzTwo" class="edu.hubu.spring6.bean.Clazz">
+        <property name="clazzId" value="4444" />
+        <property name="clazzName" value="Javaee0222" />
+        <property name="studentList" ref="students" />
+    </bean>
+
+
+    <bean id="studentSix" class="edu.hubu.spring6.bean.Student"
+          p:id="1006"
+          p:name="小明"
+          p:clazz-ref="clazzOne"
+          p:teacherMap-ref="teacherMap" />
+
+</beans>
